@@ -25,7 +25,8 @@
     </nav>
   </div>
 </header>
-<!-- ATHEX ticker (TradingView, 15' delayed) -->
+
+<!-- Global markets ticker (TradingView, 15' delayed) -->
 <div class="tv-tape" style="border-bottom:1px solid var(--hairline);">
   <div class="tradingview-widget-container">
     <div class="tradingview-widget-container__widget"></div>
@@ -33,11 +34,26 @@
       src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
     {
       "symbols": [
-        {"proName": "ATHEX:GD", "title": "Γενικός Δείκτης"},
-        {"proName": "ATHEX:ETE", "title": "Εθνική"},
-        {"proName": "ATHEX:EUROB", "title": "Eurobank"},
-        
-        {"proName": "FX_IDC:EURUSD", "title": "EUR/USD"}
+        {"proName": "ATHEX:GD",        "title": "Γενικός Δείκτης"},
+        {"proName": "TVC:SX5E",        "title": "Euro Stoxx 50"},
+        {"proName": "XETR:DAX",        "title": "DAX"},
+        {"proName": "EURONEXT:PX1",    "title": "CAC 40"},
+        {"proName": "TVC:UKX",         "title": "FTSE 100"},
+        {"proName": "SP:SPX",          "title": "S&P 500"},
+        {"proName": "NASDAQ:IXIC",     "title": "Nasdaq"},
+        {"proName": "DJ:DJI",          "title": "Dow Jones"},
+        {"proName": "TVC:NI225",       "title": "Nikkei 225"},
+        {"proName": "KRX:KOSPI",       "title": "KOSPI"},
+        {"proName": "ASX:XJO",         "title": "ASX 200"},
+        {"proName": "TVC:US10Y",       "title": "US 10Y"},
+        {"proName": "TVC:US02Y",       "title": "US 2Y"},
+        {"proName": "TVC:DE10Y",       "title": "Bund 10Y"},
+        {"proName": "TVC:GR10Y",       "title": "GR 10Y"},
+        {"proName": "TVC:IT10Y",       "title": "IT 10Y"},
+        {"proName": "TVC:GOLD",        "title": "Χρυσός"},
+        {"proName": "TVC:SILVER",      "title": "Ασήμι"},
+        {"proName": "BITSTAMP:BTCUSD", "title": "Bitcoin"},
+        {"proName": "FX_IDC:EURUSD",   "title": "EUR/USD"}
       ],
       "showSymbolLogo": false,
       "colorTheme": "dark",
@@ -48,6 +64,7 @@
     </script>
   </div>
 </div>
+
 <main>
   <!-- ============ HERO ============ -->
   <section class="hero">
