@@ -25,7 +25,29 @@
     </nav>
   </div>
 </header>
-
+<!-- ATHEX ticker (TradingView, 15' delayed) -->
+<div class="tv-tape" style="border-bottom:1px solid var(--hairline);">
+  <div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript"
+      src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {
+      "symbols": [
+        {"proName": "ATHEX:GD", "title": "Γενικός Δείκτης"},
+        {"proName": "ATHEX:ETE", "title": "Εθνική"},
+        {"proName": "ATHEX:EUROB", "title": "Eurobank"},
+        {"proName": "ATHEX:MYTIL", "title": "Metlen"},
+        {"proName": "FX_IDC:EURUSD", "title": "EUR/USD"}
+      ],
+      "showSymbolLogo": false,
+      "colorTheme": "dark",
+      "isTransparent": true,
+      "displayMode": "adaptive",
+      "locale": "el"
+    }
+    </script>
+  </div>
+</div>
 <main>
   <!-- ============ HERO ============ -->
   <section class="hero">
