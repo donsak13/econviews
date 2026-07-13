@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advisory & Consultation — Theodosios K.</title>
+<meta name="description" content="Economic commentary, gaming-sector insight, and one-to-one consultation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Literata:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/lang.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap site-bar">
+    <a class="brand" href="index.html">Theodosios K. <span>· Economic Views</span></a>
+    <button class="nav-btn" id="navBtn" aria-label="Menu">☰</button>
+    <nav class="main" id="mainNav">
+      <a href="index.html"><span class="lang-en">Home</span><span class="lang-el">Αρχική</span></a>
+      <a href="articles.html"><span class="lang-en">Views</span><span class="lang-el">Άρθρα</span></a>
+      <a href="services.html" aria-current="page"><span class="lang-en">Advisory</span><span class="lang-el">Υπηρεσίες</span></a>
+      <a href="about.html"><span class="lang-en">About</span><span class="lang-el">Σχετικά</span></a>
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language">ΕΛ</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding-bottom:20px;">
+    <div class="wrap">
+      <p class="eyebrow"><span class="lang-en">Advisory</span><span class="lang-el">Υπηρεσίες</span></p>
+      <h1><span class="lang-en">Independent analysis, applied to your question.</span><span class="lang-el">Ανεξάρτητη ανάλυση, εφαρμοσμένη στο δικό σας ερώτημα.</span></h1>
+      <p class="lede"><span class="lang-en">No sales pitch, no boilerplate. A candid assessment of the situation, the numbers, and the options — and a written follow-up you can act on.</span><span class="lang-el">Χωρίς πωλησιακή ρητορική. Μια ειλικρινής αποτίμηση της κατάστασης, των αριθμών και των επιλογών — με γραπτή τεκμηρίωση που μπορείτε να αξιοποιήσετε.</span></p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="svc-grid">
+        <div class="svc">
+          <h3><span class="lang-en">Economic commentary & research</span><span class="lang-el">Οικονομικός σχολιασμός & έρευνα</span></h3>
+          <p><span class="lang-en">Commissioned written analysis: Greek macro, European markets, sector reviews. Delivered as a structured report in Greek or English.</span><span class="lang-el">Γραπτή ανάλυση κατά παραγγελία: ελληνικά μακροοικονομικά, ευρωπαϊκές αγορές, κλαδικές επισκοπήσεις. Παραδίδεται ως δομημένη αναφορά στα ελληνικά ή στα αγγλικά.</span></p>
+        </div>
+        <div class="svc">
+          <h3><span class="lang-en">Gaming-sector consultation</span><span class="lang-el">Συμβουλευτική για τον κλάδο παιγνίων</span></h3>
+          <p><span class="lang-en">Operational, commercial, and regulatory perspective on the Greek regulated gaming market — retail dynamics, GGR drivers, agency economics — from 27 years of first-hand operation.</span><span class="lang-el">Λειτουργική, εμπορική και κανονιστική οπτική για την ελληνική ρυθμιζόμενη αγορά παιγνίων — δυναμική λιανικής, παράγοντες GGR, οικονομικά πρακτορείου — από 27 χρόνια εμπειρίας.</span></p>
+        </div>
+        <div class="svc">
+          <h3><span class="lang-en">One-to-one sessions</span><span class="lang-el">Ατομικές συνεδρίες</span></h3>
+          <p><span class="lang-en">A focused session (online or in Athens) on a specific business or financial question, followed by a short written summary of the analysis and options discussed.</span><span class="lang-el">Στοχευμένη συνεδρία (διαδικτυακά ή στην Αθήνα) πάνω σε συγκεκριμένο επιχειρηματικό ή χρηματοοικονομικό ερώτημα, με σύντομη γραπτή σύνοψη της ανάλυσης.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONSULT FORM ============ -->
+  <section class="block" id="consult">
+    <div class="wrap">
+      <div class="section-head">
+        <h2><span class="lang-en">Request a consultation</span><span class="lang-el">Αίτημα συμβουλευτικής</span></h2>
+      </div>
+
+      <!-- FORMSPREE: replace YOUR_FORM_ID after creating a free form at formspree.io -->
+      <form class="consult" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <label for="f-name"><span class="lang-en">Name</span><span class="lang-el">Ονοματεπώνυμο</span></label>
+        <input id="f-name" type="text" name="name" required>
+
+        <label for="f-email">Email</label>
+        <input id="f-email" type="email" name="email" required>
+
+        <label for="f-topic"><span class="lang-en">Topic</span><span class="lang-el">Θέμα</span></label>
+        <select id="f-topic" name="topic">
+          <option value="commentary">Economic commentary / research</option>
+          <option value="gaming">Gaming-sector consultation</option>
+          <option value="session">One-to-one session</option>
+          <option value="other">Other / Άλλο</option>
+        </select>
+
+        <label for="f-msg"><span class="lang-en">Briefly describe your question</span><span class="lang-el">Περιγράψτε συνοπτικά το ερώτημά σας</span></label>
+        <textarea id="f-msg" name="message" rows="6" required></textarea>
+
+        <button class="btn primary" type="submit"><span class="lang-en">Send request</span><span class="lang-el">Αποστολή αιτήματος</span></button>
+      </form>
+
+      <p class="disclaimer" style="max-width:640px;">
+        <span class="lang-en">Requests are answered personally, normally within two business days. Consultations are general business analysis and do not constitute regulated investment, legal, or tax advice.</span>
+        <span class="lang-el">Τα αιτήματα απαντώνται προσωπικά, κατά κανόνα εντός δύο εργάσιμων ημερών. Οι συνεδρίες αποτελούν γενική επιχειρηματική ανάλυση και δεν συνιστούν ρυθμιζόμενη επενδυτική, νομική ή φορολογική συμβουλή.</span>
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap cols">
+    <div>
+      <div><strong>Theodosios K. · Economic Views</strong></div>
+      <div><span class="lang-en">Independent analysis from Athens, Greece.</span><span class="lang-el">Ανεξάρτητη ανάλυση από την Αθήνα.</span></div>
+    </div>
+    <div>
+      <div><a href="articles.html"><span class="lang-en">Views</span><span class="lang-el">Άρθρα</span></a> · <a href="services.html"><span class="lang-en">Advisory</span><span class="lang-el">Υπηρεσίες</span></a> · <a href="about.html"><span class="lang-en">About</span><span class="lang-el">Σχετικά</span></a></div>
+      <div><a href="mailto:contact@example.com">contact@example.com</a></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
