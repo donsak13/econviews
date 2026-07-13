@@ -26,7 +26,7 @@
   </div>
 </header>
 
-<!-- Global markets ticker (TradingView, 15' delayed) -->
+<!-- Global markets ticker (TradingView, 15' delayed, widget-licensed symbols) -->
 <div class="tv-tape" style="border-bottom:1px solid var(--hairline);">
   <div class="tradingview-widget-container">
     <div class="tradingview-widget-container__widget"></div>
@@ -34,26 +34,23 @@
       src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
     {
       "symbols": [
-        {"proName": "ATHEX:GD",        "title": "Γενικός Δείκτης"},
-        {"proName": "TVC:SX5E",        "title": "Euro Stoxx 50"},
-        {"proName": "XETR:DAX",        "title": "DAX"},
-        {"proName": "EURONEXT:PX1",    "title": "CAC 40"},
-        {"proName": "TVC:UKX",         "title": "FTSE 100"},
-        {"proName": "SP:SPX",          "title": "S&P 500"},
-        {"proName": "NASDAQ:IXIC",     "title": "Nasdaq"},
-        {"proName": "DJ:DJI",          "title": "Dow Jones"},
-        {"proName": "TVC:NI225",       "title": "Nikkei 225"},
-        {"proName": "KRX:KOSPI",       "title": "KOSPI"},
-        {"proName": "ASX:XJO",         "title": "ASX 200"},
-        {"proName": "TVC:US10Y",       "title": "US 10Y"},
-        {"proName": "TVC:US02Y",       "title": "US 2Y"},
-        {"proName": "TVC:DE10Y",       "title": "Bund 10Y"},
-        {"proName": "TVC:GR10Y",       "title": "GR 10Y"},
-        {"proName": "TVC:IT10Y",       "title": "IT 10Y"},
-        {"proName": "TVC:GOLD",        "title": "Χρυσός"},
-        {"proName": "TVC:SILVER",      "title": "Ασήμι"},
-        {"proName": "BITSTAMP:BTCUSD", "title": "Bitcoin"},
-        {"proName": "FX_IDC:EURUSD",   "title": "EUR/USD"}
+        {"proName": "ATHEX:GD",         "title": "Γενικός Δείκτης"},
+        {"proName": "INDEX:SX5E",       "title": "Euro Stoxx 50"},
+        {"proName": "XETR:DAX",         "title": "DAX"},
+        {"proName": "INDEX:CAC40",      "title": "CAC 40"},
+        {"proName": "FOREXCOM:UKXGBP",  "title": "UK 100"},
+        {"proName": "FOREXCOM:SPXUSD",  "title": "S&P 500"},
+        {"proName": "FOREXCOM:NSXUSD",  "title": "Nasdaq 100"},
+        {"proName": "FOREXCOM:DJI",     "title": "Dow Jones"},
+        {"proName": "INDEX:NKY",        "title": "Nikkei 225"},
+        {"proName": "INDEX:KSIC",       "title": "KOSPI"},
+        {"proName": "ASX:XJO",          "title": "ASX 200"},
+        {"proName": "CBOT:ZN1!",        "title": "US 10Y Note (fut.)"},
+        {"proName": "EUREX:FGBL1!",     "title": "Bund (fut.)"},
+        {"proName": "TVC:GOLD",         "title": "Χρυσός"},
+        {"proName": "TVC:SILVER",       "title": "Ασήμι"},
+        {"proName": "BITSTAMP:BTCUSD",  "title": "Bitcoin"},
+        {"proName": "FX_IDC:EURUSD",    "title": "EUR/USD"}
       ],
       "showSymbolLogo": false,
       "colorTheme": "dark",
@@ -64,6 +61,8 @@
     </script>
   </div>
 </div>
+
+
 
 <main>
   <!-- ============ HERO ============ -->
@@ -163,8 +162,8 @@
     </div>
   </div>
   <div class="wrap" style="margin-top:24px; font-size:0.78rem;">
-    <span class="lang-en">Content on this site is general commentary and does not constitute investment, legal, or tax advice.</span>
-    <span class="lang-el">Το περιεχόμενο του παρόντος αποτελεί γενικό σχολιασμό και δεν συνιστά επενδυτική, νομική ή φορολογική συμβουλή.</span>
+    <span class="lang-en">Content on this site is general commentary and does not constitute investment, legal, or tax advice. Market data by TradingView, delayed.</span>
+    <span class="lang-el">Το περιεχόμενο του παρόντος αποτελεί γενικό σχολιασμό και δεν συνιστά επενδυτική, νομική ή φορολογική συμβουλή. Δεδομένα αγορών από TradingView, με καθυστέρηση.</span>
   </div>
 </footer>
 
