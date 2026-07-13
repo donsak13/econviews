@@ -1,19 +1,20 @@
 /* ============================================================
-   Economic Views — design system
-   Palette: paper #F4F5F3 · ink #17232E · petrol #0F5E68
-            brass #B9914F · muted #5C6B76
+   Economic Views — dark edition
+   Palette: night #0D141C · panel #131E29 · ink-light #E8ECEF
+            petrol #2FA3B4 · brass #C9A45C · muted #8A98A5
    Type:    Literata (display) · IBM Plex Sans (body/UI)
    ============================================================ */
 
 :root {
-  --paper: #F4F5F3;
-  --ink: #17232E;
-  --petrol: #0F5E68;
-  --petrol-dark: #0A454D;
-  --brass: #B9914F;
-  --muted: #5C6B76;
-  --hairline: #D8DDDA;
-  --card: #FFFFFF;
+  --night: #0D141C;
+  --panel: #131E29;
+  --panel-2: #182635;
+  --ink: #E8ECEF;
+  --petrol: #2FA3B4;
+  --petrol-soft: #6FC4D1;
+  --brass: #C9A45C;
+  --muted: #8A98A5;
+  --hairline: #24313F;
   --max: 1080px;
   --serif: "Literata", Georgia, serif;
   --sans: "IBM Plex Sans", -apple-system, "Segoe UI", sans-serif;
@@ -28,30 +29,33 @@ body {
   font-size: 17px;
   line-height: 1.65;
   color: var(--ink);
-  background: var(--paper);
+  background: var(--night);
   -webkit-font-smoothing: antialiased;
 }
 
-/* ---- Bilingual switching ------------------------------------
-   <html data-lang="en"> shows .lang-en, hides .lang-el (and vice versa) */
+/* ---- Bilingual switching ---- */
 html[data-lang="en"] .lang-el { display: none !important; }
 html[data-lang="el"] .lang-en { display: none !important; }
 
 img, svg { max-width: 100%; display: block; }
 
-a { color: var(--petrol); text-decoration: none; }
+a { color: var(--petrol-soft); text-decoration: none; }
 a:hover { text-decoration: underline; }
 a:focus-visible, button:focus-visible {
   outline: 2px solid var(--petrol);
   outline-offset: 3px;
 }
 
+::selection { background: rgba(47,163,180,0.35); }
+
 .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
 
 /* ---- Header -------------------------------------------------- */
 header.site {
   border-bottom: 1px solid var(--hairline);
-  background: var(--paper);
+  background: rgba(13,20,28,0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   position: sticky; top: 0; z-index: 40;
 }
 .site-bar {
@@ -66,7 +70,7 @@ header.site {
   letter-spacing: 0.01em;
   color: var(--ink);
 }
-.brand span { color: var(--petrol); }
+.brand span { color: var(--brass); }
 .brand:hover { text-decoration: none; }
 
 nav.main { display: flex; align-items: center; gap: 26px; }
@@ -74,34 +78,42 @@ nav.main a {
   font-size: 0.92rem;
   color: var(--ink);
   letter-spacing: 0.02em;
+  position: relative;
+  padding-bottom: 3px;
 }
-nav.main a[aria-current="page"] {
-  color: var(--petrol);
-  border-bottom: 2px solid var(--brass);
-  padding-bottom: 2px;
+nav.main a:hover { text-decoration: none; color: var(--petrol-soft); }
+nav.main a::after {
+  content: "";
+  position: absolute; left: 0; bottom: 0;
+  width: 0; height: 2px;
+  background: var(--brass);
+  transition: width 0.25s ease;
 }
+nav.main a:hover::after { width: 100%; }
+nav.main a[aria-current="page"] { color: var(--petrol-soft); }
+nav.main a[aria-current="page"]::after { width: 100%; }
 
 .lang-toggle {
   font-family: var(--sans);
   font-size: 0.82rem;
   letter-spacing: 0.06em;
   border: 1px solid var(--hairline);
-  background: var(--card);
+  background: var(--panel);
   color: var(--muted);
   border-radius: 3px;
   padding: 6px 12px;
   cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
 }
-.lang-toggle:hover { border-color: var(--petrol); color: var(--petrol); }
+.lang-toggle:hover { border-color: var(--brass); color: var(--brass); }
 
-/* mobile nav */
 .nav-btn { display: none; background: none; border: none; font-size: 1.5rem; color: var(--ink); cursor: pointer; }
 @media (max-width: 760px) {
   .nav-btn { display: block; }
   nav.main {
     display: none;
     position: absolute; left: 0; right: 0; top: 100%;
-    background: var(--paper);
+    background: var(--night);
     border-bottom: 1px solid var(--hairline);
     flex-direction: column; align-items: flex-start;
     padding: 14px 24px 20px; gap: 14px;
@@ -110,10 +122,29 @@ nav.main a[aria-current="page"] {
 }
 
 /* ---- Hero ---------------------------------------------------- */
-.hero { padding: 88px 0 64px; }
+.hero {
+  padding: 96px 0 72px;
+  position: relative;
+  overflow: hidden;
+  /* faint chart-grid, like graph paper in the dark */
+  background-image:
+    linear-gradient(rgba(47,163,180,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(47,163,180,0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+.hero::before {
+  /* brass glow, upper left — quiet, not neon */
+  content: "";
+  position: absolute;
+  top: -220px; left: -160px;
+  width: 640px; height: 640px;
+  background: radial-gradient(circle, rgba(201,164,92,0.13) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero > .wrap { position: relative; }
 .eyebrow {
   font-size: 0.78rem;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--brass);
   font-weight: 600;
@@ -122,10 +153,11 @@ nav.main a[aria-current="page"] {
 .hero h1 {
   font-family: var(--serif);
   font-weight: 500;
-  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  font-size: clamp(2.1rem, 5vw, 3.5rem);
   line-height: 1.15;
-  max-width: 18ch;
+  max-width: 20ch;
   letter-spacing: -0.01em;
+  color: var(--ink);
 }
 .hero p.lede {
   margin-top: 22px;
@@ -134,10 +166,11 @@ nav.main a[aria-current="page"] {
   max-width: 56ch;
 }
 .hero .curve {
-  margin-top: 44px;
+  margin-top: 48px;
   width: 100%;
-  height: 90px;
+  height: 100px;
   overflow: visible;
+  filter: drop-shadow(0 0 6px rgba(201,164,92,0.35));
 }
 .curve path {
   fill: none;
@@ -147,41 +180,61 @@ nav.main a[aria-current="page"] {
   stroke-dashoffset: 1400;
   animation: draw 2.2s ease-out 0.3s forwards;
 }
-.curve circle { fill: var(--petrol); opacity: 0; animation: appear 0.5s ease-out 2.2s forwards; }
+.curve circle {
+  fill: var(--petrol-soft);
+  opacity: 0;
+  animation: appear 0.5s ease-out 2.2s forwards;
+}
 @keyframes draw { to { stroke-dashoffset: 0; } }
 @keyframes appear { to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) {
   .curve path { animation: none; stroke-dashoffset: 0; }
   .curve circle { animation: none; opacity: 1; }
+  nav.main a::after { transition: none; }
   html { scroll-behavior: auto; }
 }
 
-.cta-row { margin-top: 36px; display: flex; gap: 14px; flex-wrap: wrap; }
+.cta-row { margin-top: 38px; display: flex; gap: 14px; flex-wrap: wrap; }
 .btn {
   display: inline-block;
   font-size: 0.95rem;
   font-weight: 500;
-  padding: 12px 24px;
+  padding: 13px 26px;
   border-radius: 3px;
   border: 1px solid var(--petrol);
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s;
 }
-.btn.primary { background: var(--petrol); color: #fff; }
-.btn.primary:hover { background: var(--petrol-dark); text-decoration: none; }
-.btn.ghost { color: var(--petrol); background: transparent; }
-.btn.ghost:hover { background: #E9EEED; text-decoration: none; }
+.btn.primary {
+  background: linear-gradient(135deg, #2FA3B4 0%, #217A88 100%);
+  color: #06222A;
+  font-weight: 600;
+  border: none;
+}
+.btn.primary:hover {
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(47,163,180,0.30);
+}
+.btn.ghost { color: var(--petrol-soft); background: transparent; }
+.btn.ghost:hover {
+  background: rgba(47,163,180,0.10);
+  text-decoration: none;
+}
 
 /* ---- Sections ------------------------------------------------ */
-section.block { padding: 64px 0; border-top: 1px solid var(--hairline); }
+section.block { padding: 72px 0; border-top: 1px solid var(--hairline); }
 .section-head {
   display: flex; align-items: baseline; justify-content: space-between;
-  margin-bottom: 34px; gap: 16px; flex-wrap: wrap;
+  margin-bottom: 36px; gap: 16px; flex-wrap: wrap;
 }
 .section-head h2 {
   font-family: var(--serif);
   font-weight: 500;
   font-size: 1.7rem;
+  color: var(--ink);
 }
-.section-head a.more { font-size: 0.9rem; }
+.section-head a.more { font-size: 0.9rem; color: var(--brass); }
+.section-head a.more:hover { color: var(--petrol-soft); text-decoration: none; }
 
 /* ---- Article cards ------------------------------------------ */
 .post-list { display: grid; gap: 0; }
@@ -189,9 +242,13 @@ section.block { padding: 64px 0; border-top: 1px solid var(--hairline); }
   display: grid;
   grid-template-columns: 130px 1fr;
   gap: 28px;
-  padding: 26px 0;
+  padding: 28px 18px;
+  margin: 0 -18px;
   border-bottom: 1px solid var(--hairline);
+  border-radius: 6px;
+  transition: background 0.2s ease;
 }
+.post:hover { background: var(--panel); }
 .post:last-child { border-bottom: none; }
 .post time {
   font-size: 0.82rem;
@@ -207,14 +264,14 @@ section.block { padding: 64px 0; border-top: 1px solid var(--hairline); }
   line-height: 1.3;
 }
 .post h3 a { color: var(--ink); }
-.post h3 a:hover { color: var(--petrol); text-decoration: none; }
+.post h3 a:hover { color: var(--petrol-soft); text-decoration: none; }
 .post p { margin-top: 8px; color: var(--muted); font-size: 0.97rem; max-width: 62ch; }
 .tag {
   display: inline-block;
   font-size: 0.72rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--petrol);
+  color: var(--brass);
   margin-bottom: 6px;
   font-weight: 600;
 }
@@ -229,13 +286,19 @@ section.block { padding: 64px 0; border-top: 1px solid var(--hairline); }
   gap: 22px;
 }
 .svc {
-  background: var(--card);
+  background: linear-gradient(180deg, var(--panel-2) 0%, var(--panel) 100%);
   border: 1px solid var(--hairline);
-  border-top: 3px solid var(--petrol);
-  border-radius: 4px;
-  padding: 28px 26px;
+  border-top: 3px solid var(--brass);
+  border-radius: 6px;
+  padding: 30px 28px;
+  transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.2s;
 }
-.svc h3 { font-family: var(--serif); font-weight: 500; font-size: 1.15rem; margin-bottom: 10px; }
+.svc:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(0,0,0,0.40);
+  border-color: rgba(201,164,92,0.45);
+}
+.svc h3 { font-family: var(--serif); font-weight: 500; font-size: 1.15rem; margin-bottom: 10px; color: var(--ink); }
 .svc p { font-size: 0.95rem; color: var(--muted); }
 
 /* ---- Article page ------------------------------------------- */
@@ -247,16 +310,20 @@ article.single h1 {
   font-size: clamp(1.8rem, 4vw, 2.6rem);
   line-height: 1.2;
   margin-bottom: 26px;
+  color: var(--ink);
 }
 article.single .body p { margin-bottom: 20px; }
 article.single .body h2 {
   font-family: var(--serif); font-weight: 500;
   font-size: 1.35rem; margin: 36px 0 14px;
+  color: var(--ink);
 }
 article.single .body blockquote {
   border-left: 3px solid var(--brass);
-  padding-left: 18px; margin: 24px 0;
-  color: var(--muted); font-style: italic;
+  background: var(--panel);
+  border-radius: 0 6px 6px 0;
+  padding: 16px 20px; margin: 26px 0;
+  color: var(--petrol-soft); font-style: italic;
 }
 .disclaimer {
   margin-top: 44px;
@@ -268,11 +335,12 @@ article.single .body blockquote {
 
 /* ---- Forms --------------------------------------------------- */
 form.consult {
-  background: var(--card);
+  background: linear-gradient(180deg, var(--panel-2) 0%, var(--panel) 100%);
   border: 1px solid var(--hairline);
-  border-radius: 4px;
-  padding: 32px 30px;
+  border-radius: 6px;
+  padding: 34px 32px;
   max-width: 640px;
+  box-shadow: 0 18px 44px rgba(0,0,0,0.35);
 }
 form.consult label {
   display: block;
@@ -280,23 +348,26 @@ form.consult label {
   font-weight: 500;
   letter-spacing: 0.03em;
   margin: 18px 0 6px;
+  color: var(--ink);
 }
 form.consult label:first-of-type { margin-top: 0; }
 form.consult input, form.consult select, form.consult textarea {
   width: 100%;
   font-family: var(--sans);
   font-size: 0.95rem;
-  padding: 11px 12px;
+  padding: 12px 13px;
   border: 1px solid var(--hairline);
-  border-radius: 3px;
-  background: var(--paper);
+  border-radius: 4px;
+  background: var(--night);
   color: var(--ink);
+  transition: border-color 0.2s;
 }
 form.consult input:focus, form.consult select:focus, form.consult textarea:focus {
-  outline: 2px solid var(--petrol);
-  border-color: transparent;
+  outline: none;
+  border-color: var(--petrol);
+  box-shadow: 0 0 0 3px rgba(47,163,180,0.18);
 }
-form.consult button { margin-top: 24px; cursor: pointer; font-family: var(--sans); }
+form.consult button { margin-top: 26px; cursor: pointer; font-family: var(--sans); }
 
 /* ---- About --------------------------------------------------- */
 .about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 48px; }
@@ -320,10 +391,12 @@ form.consult button { margin-top: 24px; cursor: pointer; font-family: var(--sans
 footer.site {
   border-top: 1px solid var(--hairline);
   margin-top: 64px;
-  padding: 40px 0 56px;
+  padding: 44px 0 60px;
   font-size: 0.88rem;
   color: var(--muted);
+  background: #0A1017;
 }
 footer.site .cols { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+footer.site strong { color: var(--ink); }
 footer.site a { color: var(--muted); }
-footer.site a:hover { color: var(--petrol); }
+footer.site a:hover { color: var(--brass); }
